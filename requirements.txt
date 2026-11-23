@@ -1,0 +1,4 @@
+streamlit==1.37.0
+yt-dlp==2024.8.6
+faster-whisper==1.0.3
+av==11.0.0
