@@ -111,12 +111,10 @@ vf += f"drawtext=text='{bot}':fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSa
                    "-vf", vf, "-c:a","aac", out]
             
             # Kalau ada caption, tambahin subtitle burn-in
-            if srt_path and os.path.exists(srt_path):
-                # Bikin versi subtitle style TikTok
+                        if srt_path and os.path.exists(srt_path):
                 vf_sub = vf + f",subtitles='{srt_path}':force_style='Fontsize=28,PrimaryColour=&H00FFFF&,Bold=1,Outline=2'"
                 cmd = ["ffmpeg","-y","-ss",str(start),"-t",str(clip_duration),"-i",raw,
                        "-vf", vf_sub, "-c:a","aac", out]
-
             with st.spinner(f"Render clip {idx+1} / mulai detik {start}..."):
                 run(cmd)
             
